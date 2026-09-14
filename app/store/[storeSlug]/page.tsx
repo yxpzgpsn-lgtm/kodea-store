@@ -7,8 +7,12 @@ export default async function StorefrontHomePage({
   params: Promise<{ storeSlug: string }>;
 }) {
   const { storeSlug } = await params;
-  const store = await prisma.store.findUnique({
-    where: { slug: storeSlug },
+  // `storeSlug` is either a subdomain slug ("nova") or, when the visitor
+  // arrived via a merchant's own domain, the full hostname — proxy.ts
+  // can't tell those apart without a database lookup, so this route checks
+  // both.
+  const store = await prisma.store.findFirst({
+    where: { OR: [{ slug: storeSlug }, { customDomain: storeSlug }] },
   });
 
   if (!store || (!store.isPublished && store.deletedAt)) notFound();

@@ -5,18 +5,35 @@ const ROOT_DOMAIN = process.env.PLATFORM_ROOT_DOMAIN ?? "platform.com";
 // Hostnames that should never be treated as a tenant storefront.
 const RESERVED_SUBDOMAINS = new Set(["www", "app", "admin", "api"]);
 
+function isPlatformHost(host: string): boolean {
+  if (host === "localhost" || host === "127.0.0.1" || host === ROOT_DOMAIN) return true;
+
+  // Vercel gives every deployment (production and previews) a *.vercel.app
+  // hostname. That's the platform itself, never a tenant's custom domain.
+  if (host.endsWith(".vercel.app")) return true;
+
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL;
+  if (appUrl) {
+    try {
+      if (new URL(appUrl).host === host) return true;
+    } catch {
+      // ignore a malformed NEXT_PUBLIC_APP_URL rather than fail the request
+    }
+  }
+
+  return false;
+}
+
 function resolveStoreSlug(hostname: string): string | null {
   const host = hostname.split(":")[0];
 
-  if (host === "localhost" || host === "127.0.0.1") return null;
+  if (isPlatformHost(host)) return null;
 
   if (host.endsWith(`.${ROOT_DOMAIN}`)) {
     const subdomain = host.slice(0, -(ROOT_DOMAIN.length + 1));
     if (!subdomain || RESERVED_SUBDOMAINS.has(subdomain)) return null;
     return subdomain;
   }
-
-  if (host === ROOT_DOMAIN) return null;
 
   // Anything else is treated as a mapped custom domain; resolution to a
   // store slug happens inside the storefront route via Store.customDomain,
