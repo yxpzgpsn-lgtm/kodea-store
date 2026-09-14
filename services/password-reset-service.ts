@@ -21,7 +21,7 @@ export async function requestPasswordReset(email: string): Promise<void> {
   try {
     await sendEmail({
       to: email,
-      subject: "Reset your NOVA password",
+      subject: "Reset your Kodéa Store password",
       html: `<p>Click the link below to reset your password. This link expires in 1 hour.</p><p><a href="${resetUrl}">${resetUrl}</a></p>`,
     });
   } catch {

@@ -1,4 +1,4 @@
-# Architecture — NOVA Commerce Platform
+# Architecture — Kodéa Store
 
 ## 1. What this is
 
@@ -49,7 +49,7 @@ hooks/                      # client-side React hooks
 types/                      # shared TypeScript types / zod schemas
 prisma/
   schema.prisma
-  seed.ts                   # demo data (NOVA store)
+  seed.ts                   # demo data (Kodéa Store demo)
 ```
 
 **Rule enforced throughout:** route handlers and Server Components stay
@@ -103,7 +103,7 @@ instead of waiting for token refresh.
   `Authorization: Bearer <api_key>`; keys are scoped to one store and a set
   of permissions, hashed at rest (`ApiKey.hashedKey`).
 - **Webhooks out** — `Webhook` model stores subscriber URLs + event list per
-  store; `services/webhook-service.ts` fires signed (`X-Nova-Signature`,
+  store; `services/webhook-service.ts` fires signed (`X-Kodea-Signature`,
   HMAC-SHA256) POSTs on domain events (`order.created`, `product.updated`, …)
   via a queued dispatcher (see §9) so a slow subscriber never blocks the
   request that triggered it.

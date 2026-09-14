@@ -88,7 +88,7 @@ export function OnboardingWizard() {
                 id="store-name"
                 value={name}
                 onChange={(event) => setName(event.target.value)}
-                placeholder="NOVA"
+                placeholder="Kodéa Store"
                 required
               />
             </div>

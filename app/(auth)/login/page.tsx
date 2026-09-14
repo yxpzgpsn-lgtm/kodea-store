@@ -14,7 +14,7 @@ export default function LoginPage() {
     <div className="space-y-6">
       <div>
         <h1 className="text-xl font-semibold">Sign in</h1>
-        <p className="mt-1 text-sm text-muted-foreground">Welcome back to NOVA.</p>
+        <p className="mt-1 text-sm text-muted-foreground">Welcome back to Kodéa Store.</p>
       </div>
 
       <form action={formAction} className="space-y-4">

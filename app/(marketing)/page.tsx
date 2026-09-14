@@ -109,7 +109,7 @@ export default function MarketingHomePage() {
               <span className="size-2.5 rounded-full bg-destructive/40" />
               <span className="size-2.5 rounded-full bg-yellow-500/40" />
               <span className="size-2.5 rounded-full bg-green-500/40" />
-              <span className="ms-3 text-xs text-muted-foreground">nova-store.platform.com/dashboard</span>
+              <span className="ms-3 text-xs text-muted-foreground">kodea-store.platform.com/dashboard</span>
             </div>
             <div className="grid grid-cols-3 gap-4 p-6 sm:grid-cols-4">
               {[
@@ -183,7 +183,7 @@ export default function MarketingHomePage() {
             Ready to build your store?
           </h2>
           <p className="mt-3 text-muted-foreground">
-            Join NOVA and launch a professional online store today.
+            Join Kodéa Store and launch a professional online store today.
           </p>
           <Button size="lg" className="mt-8" nativeButton={false} render={<Link href="/register" />}>
             Start for free <ArrowRight className="size-4" />

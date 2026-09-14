@@ -1,4 +1,4 @@
-# NOVA — E-commerce SaaS Platform
+# Kodéa Store — E-commerce SaaS Platform
 
 A multi-tenant e-commerce platform: create a store, add products, take
 payments, and grow — all from one dashboard. See
@@ -38,8 +38,8 @@ Next.js 16 (App Router, Turbopack) · TypeScript · Tailwind CSS v4 · shadcn/ui
    npm run db:seed
    ```
 
-   Seeding creates a demo store (`NOVA`) with 5 products, 6 customers, and
-   12 orders, owned by `owner@nova.demo` / `password123`.
+   Seeding creates a demo store (`Kodéa Store`) with 5 products, 6 customers, and
+   12 orders, owned by `owner@kodea.demo` / `password123`.
 
 4. **Run the dev server**:
 
@@ -64,5 +64,5 @@ boundary, payment abstraction, etc).
 | `npm run dev`        | Start the dev server (Turbopack)          |
 | `npm run build`      | Production build                          |
 | `npm run db:migrate` | Apply Prisma migrations                   |
-| `npm run db:seed`    | Seed the NOVA demo store                  |
+| `npm run db:seed`    | Seed the Kodéa Store demo store           |
 | `npm run db:studio`  | Open Prisma Studio                        |

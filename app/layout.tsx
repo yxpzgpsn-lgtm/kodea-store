@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "NOVA — Build. Sell. Grow.",
-    template: "%s · NOVA",
+    default: "Kodéa Store — Build. Sell. Grow.",
+    template: "%s · Kodéa Store",
   },
   description:
     "Everything you need to build, manage and scale your online business — powered by intelligent automation.",

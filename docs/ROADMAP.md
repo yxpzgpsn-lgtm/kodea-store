@@ -8,7 +8,7 @@ the status column as phases land — this file is the source of truth for
 |-------|-------------------------------------------------|---------------|
 | 1     | Architecture, DB schema, auth, RBAC scaffold     | ✅ Done       |
 | 2     | Store creation + onboarding wizard               | ✅ Done       |
-| 3     | Product + category + inventory system            | ⬜ Not started |
+| 3     | Product + category + inventory system            | ✅ Done       |
 | 4     | Storefront + shopping cart                       | ⬜ Not started |
 | 5     | Checkout + payments                              | 🟡 Payment abstraction + Stripe provider only |
 | 6     | Orders + customers                               | 🟡 Schema + dashboard overview only |
@@ -32,8 +32,27 @@ the status column as phases land — this file is the source of truth for
 - Every other dashboard section (`products`, `orders`, `inventory`, …) is an
   honest empty state naming the phase that implements it — not a fake button.
 
-## Known gaps to close next (Phase 3 candidate order)
+## What "done" means for Phase 3
 
-1. Product CRUD + variants + bulk CSV import/export.
-2. Category tree management.
-3. Inventory adjustments UI on top of the existing `InventoryItem`/`InventoryHistory` models.
+- Product CRUD (`services/product-service.ts`): create/update/delete (soft)/duplicate,
+  multi-variant support, category assignment, image URLs, SEO fields.
+- Category management (`services/category-service.ts`): flat + one-level parent nesting.
+- CSV import/export (`services/product-csv-service.ts`): one row per variant on
+  export; import creates one product + one default variant per row (no
+  multi-variant grouping yet — see gap below).
+- Inventory (`services/inventory-service.ts`): multi-location stock, manual
+  adjustments with `InventoryHistory` audit trail, location-to-location
+  transfers, and the overview cards (total value, in-stock/low-stock/out-of-stock
+  counts) from section 10 of the brief, on `/dashboard/[storeId]/inventory`.
+- Dashboard pages: `/products` (search/filter/sort), `/products/new`,
+  `/products/[productId]` (edit + variants + stock adjust), `/products/categories`,
+  `/products/import`, `/inventory`.
+
+## Known gaps to close next
+
+1. CSV import doesn't group multiple rows into one multi-variant product
+   (needs a shared "handle" column convention).
+2. No image upload — images are added by pasting a URL; `lib/storage` (S3)
+   is wired but not used by the product form yet.
+3. No bulk editing (select many products, change status/price together).
+4. Category editing is create/delete only — no rename/re-parent UI yet.

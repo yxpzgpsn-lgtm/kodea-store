@@ -25,23 +25,23 @@ function slugify(value: string): string {
 }
 
 async function main() {
-  const ownerEmail = "owner@nova.demo";
+  const ownerEmail = "owner@kodea.demo";
   const owner = await prisma.user.upsert({
     where: { email: ownerEmail },
     update: {},
     create: {
       email: ownerEmail,
-      name: "Nova Owner",
+      name: "Kodéa Owner",
       passwordHash: await argon2.hash("password123", { type: argon2.argon2id }),
     },
   });
 
   const store = await prisma.store.upsert({
-    where: { slug: "nova" },
+    where: { slug: "kodea-store" },
     update: {},
     create: {
-      name: "NOVA",
-      slug: "nova",
+      name: "Kodéa Store",
+      slug: "kodea-store",
       category: "Fashion & Apparel",
       businessType: "Registered company",
       country: "United States",
@@ -69,7 +69,7 @@ async function main() {
         storeId: store.id,
         name: p.name,
         slug: slugify(p.name),
-        description: `${p.name} — a NOVA best-seller.`,
+        description: `${p.name} — a Kodéa Store best-seller.`,
         status: "ACTIVE",
         tags: [p.category],
       },
@@ -142,7 +142,7 @@ async function main() {
     }
   }
 
-  console.log(`Seeded NOVA demo store (slug: ${store.slug}).`);
+  console.log(`Seeded Kodéa Store demo store (slug: ${store.slug}).`);
   console.log(`Sign in as ${ownerEmail} / password123`);
 }
 

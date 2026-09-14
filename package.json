@@ -1,5 +1,5 @@
 {
-  "name": "ecommerce-platform",
+  "name": "kodea-store",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -29,6 +29,7 @@
     "next-auth": "^5.0.0-beta.32",
     "next-themes": "^0.4.6",
     "openai": "^7.15.0",
+    "papaparse": "^5.7.0",
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "react-hook-form": "^7.88.0",
@@ -43,6 +44,7 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
+    "@types/papaparse": "^5.5.2",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",

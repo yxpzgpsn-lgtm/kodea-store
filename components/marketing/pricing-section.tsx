@@ -18,7 +18,7 @@ interface Plan {
 const PLANS: Plan[] = [
   {
     name: "Free",
-    tagline: "Try NOVA with no commitment",
+    tagline: "Try Kodéa Store with no commitment",
     monthlyCents: 0,
     yearlyCents: 0,
     features: [

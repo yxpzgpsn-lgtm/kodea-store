@@ -14,7 +14,7 @@ export default function MarketingLayout({ children }: { children: ReactNode }) {
       <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
           <Link href="/" className="text-lg font-semibold tracking-tight">
-            NOVA
+            Kodéa Store
           </Link>
           <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
             {NAV_LINKS.map((link) => (
@@ -40,7 +40,7 @@ export default function MarketingLayout({ children }: { children: ReactNode }) {
         <div className="mx-auto max-w-6xl px-6 py-12 text-sm text-muted-foreground">
           <div className="flex flex-col justify-between gap-6 md:flex-row">
             <div>
-              <p className="text-base font-semibold text-foreground">NOVA</p>
+              <p className="text-base font-semibold text-foreground">Kodéa Store</p>
               <p className="mt-1 max-w-sm">
                 The intelligent commerce platform for building, managing and growing your
                 online business.
@@ -63,7 +63,7 @@ export default function MarketingLayout({ children }: { children: ReactNode }) {
               </div>
             </div>
           </div>
-          <p className="mt-10 text-xs">© {new Date().getFullYear()} NOVA. All rights reserved.</p>
+          <p className="mt-10 text-xs">© {new Date().getFullYear()} Kodéa Store. All rights reserved.</p>
         </div>
       </footer>
     </div>
